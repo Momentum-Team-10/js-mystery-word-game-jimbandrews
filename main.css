@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+h1, #mystery-word, p, .button {
+    text-align: center;
+}
+
+#mystery-word {
+    height: 75px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#mystery-word > div {
+    font-size:60px;
+}
+
+#graveyard {
+    height: 50px;
+}
+
+.letter {
+    display: flex;
+}
+
+.button {
+    flex: 1 1 auto;
+    line-height: 80px;
+    height: 80px;
+    
+}
+
