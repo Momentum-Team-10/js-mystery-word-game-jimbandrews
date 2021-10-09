@@ -36,12 +36,36 @@ for (let letter of sampleWordCap) {
 
 let buttons = document.querySelectorAll('.button')
 
+// function buttonPress(button) {
+//     if (sampleWord.includes(button.innerText) === true) {
+//         let matchDivs = document.querySelectorAll('.' + button.innerText);
+//         for (let div of matchDivs) {
+//             div.innerText = button.innerText;
+//         }
+//     }
+    // } else {
+    //     let wrongGuess = document.createElement('div');
+    //     wrongGuess.innerText = button.innerText;
+    //     // let wrongLetter = document.createTextNode(button.innerText);
+    //     // wrongGuess.appendChild(wrongLetter);
+    //     graveyard.appendChild(wrongGuess);
+    // }
+    // button.removeEventListener('click', buttonPress);
+// }
+
+// for (let button of buttons) {
+//     button.addEventListener('click', buttonPress)
+// }
+
+
+
 for (let button of buttons) {
     button.addEventListener('click', () => {
-        if (sampleWord.includes(button.innerText) === true);
+        if (sampleWord.includes(button.innerText) === true) {
             let matchDivs = document.querySelectorAll('.'+button.innerText);
             for (let div of matchDivs) {
                 div.innerText = button.innerText
             }
+        }
     })
 }
