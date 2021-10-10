@@ -18,6 +18,8 @@ h1, #mystery-word, p, .button {
 
 #graveyard {
     height: 50px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .letter {
