@@ -53,22 +53,11 @@ function buttonPress(button) {
             graveyard.appendChild(wrongGuess);
             wrongGuess.innerText = button.innerText;
         }
+        buttonToRemove = document.getElementById(button.innerText)
+        buttonToRemove.remove()
     })
 }
 
 for (let button of buttons) {
     buttonPress(button);
 }
-
-
-
-// for (let button of buttons) {
-//     button.addEventListener('click', () => {
-//         if (sampleWord.includes(button.innerText) === true) {
-//             let matchDivs = document.querySelectorAll('.'+button.innerText);
-//             for (let div of matchDivs) {
-//                 div.innerText = button.innerText
-//             }
-//         }
-//     })
-// }
