@@ -29,17 +29,27 @@ for (let letter of sampleWord) {
 
 let buttons = document.querySelectorAll('.button')
 
-// for (let button of buttons) {
-//     button.addEventListener('click', () => {
-//         if (sampleWordCap.includes(button.innerText)) {
-//             let matchDivs = document.querySelectorAll('.' + button.innerText);
-//             for (let div of matchDivs) {
-//                 div.innerText = button.innerText;
-//             }
-//         }
-//     })
-// }
 
+// function that returns the DOM node of the parent row
+function findParentRow(button){
+    let rows = document.getElementsByClassName('letter')
+    for (let row of rows) {
+        if (row.contains(button)) {
+            return row
+        }
+    }
+}
+
+function deactivateButton(button) {
+    let newButton = document.createElement('div');
+    let buttonText = document.createTextNode(button.innerText);
+    newButton.appendChild(buttonText);
+    newButton.setAttribute('class', 'deactivated')
+    let buttonToRemove = document.getElementById(button.innerText);
+    let row = findParentRow(button);
+    row.insertBefore(newButton, buttonToRemove);
+    buttonToRemove.remove();
+}
 
 function buttonPress(button) {
     button.addEventListener('click', () => {
@@ -53,8 +63,7 @@ function buttonPress(button) {
             graveyard.appendChild(wrongGuess);
             wrongGuess.innerText = button.innerText;
         }
-        buttonToRemove = document.getElementById(button.innerText)
-        buttonToRemove.remove()
+        deactivateButton(button);
     })
 }
 
