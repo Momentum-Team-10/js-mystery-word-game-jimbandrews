@@ -1,26 +1,17 @@
-// separating word list into difficulty arrays by word length
-let easy = [];
-let medium = [];
-let hard = [];
-
-for (let word of words) {
-    if (word.length < 6) {
-        easy.push(word);
-    } else if (word.length > 9) {
-        hard.push(word);
-    } else {
-        medium.push(word);
-    }
-}
-
-// choosing sample word to build website around. after it is functioning properly, need to figure out how to select random word based on user input of easy, medium, or hard.
-let sampleWord = 'alarm';
-sampleWord = sampleWord.toUpperCase()
-
 let mysteryElement = document.getElementById('mystery-word');
 
+
+// randomly pick word from difficulty array
+let mysteryWord = words[Math.floor(Math.random()*difficulty.length)];
+mysteryWord = mysteryWord.toUpperCase();
+
+let maxGuesses = 6;
+if (mysteryWord.length > 6) {
+    maxGuesses = mysteryWord.length
+}
+
 // creates divs in mystery-word div filled with underscores for each letter and with a class = letter
-for (let letter of sampleWord) {
+for (let letter of mysteryWord) {
     let blankDiv = document.createElement('div');
     let blank = document.createTextNode('_');
     blankDiv.appendChild(blank);
@@ -55,15 +46,17 @@ function deactivateButton(button) {
 // adds event listener to a button
 function buttonPress(button) {
     button.addEventListener('click', () => {
-        if (sampleWord.includes(button.innerText) === true) {
+        if (mysteryWord.includes(button.innerText) === true) {
             let matchDivs = document.querySelectorAll('.' + button.innerText);
             for (let div of matchDivs) {
                 div.innerText = button.innerText;
             }
+            maxGuesses++
         } else {
             let wrongGuess = document.createElement('div');
             graveyard.appendChild(wrongGuess);
             wrongGuess.innerText = button.innerText;
+            maxGuesses--
         }
         deactivateButton(button);
     })
