@@ -2,7 +2,7 @@ let mysteryElement = document.getElementById('mystery-word');
 
 
 // randomly pick word from difficulty array
-let mysteryWord = words[Math.floor(Math.random()*difficulty.length)];
+let mysteryWord = words[Math.floor(Math.random()*words.length)];
 mysteryWord = mysteryWord.toUpperCase();
 
 let maxGuesses = 6;
@@ -59,9 +59,13 @@ function buttonPress(button) {
             maxGuesses--
         }
         deactivateButton(button);
+        if (maxGuesses === 0) {
+            console.log("You Lose!")
+        }
     })
 }
 
 for (let button of buttons) {
     buttonPress(button);
 }
+
