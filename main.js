@@ -19,6 +19,7 @@ sampleWord = sampleWord.toUpperCase()
 
 let mysteryElement = document.getElementById('mystery-word');
 
+// creates divs in mystery-word div filled with underscores for each letter and with a class = letter
 for (let letter of sampleWord) {
     let blankDiv = document.createElement('div');
     let blank = document.createTextNode('_');
@@ -28,7 +29,6 @@ for (let letter of sampleWord) {
 }
 
 let buttons = document.querySelectorAll('.button')
-
 
 // function that returns the DOM node of the parent row
 function findParentRow(button){
@@ -40,6 +40,7 @@ function findParentRow(button){
     }
 }
 
+// replaces guessed letter with identical div of class "deactivated"
 function deactivateButton(button) {
     let newButton = document.createElement('div');
     let buttonText = document.createTextNode(button.innerText);
@@ -51,6 +52,7 @@ function deactivateButton(button) {
     buttonToRemove.remove();
 }
 
+// adds event listener to a button
 function buttonPress(button) {
     button.addEventListener('click', () => {
         if (sampleWord.includes(button.innerText) === true) {
