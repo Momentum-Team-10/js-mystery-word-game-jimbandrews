@@ -5,9 +5,9 @@ let mysteryElement = document.getElementById('mystery-word');
 let mysteryWord = words[Math.floor(Math.random()*words.length)];
 mysteryWord = mysteryWord.toUpperCase();
 
-let maxGuesses = 6;
+let maxGuesses = 12;
 if (mysteryWord.length > 6) {
-    maxGuesses = mysteryWord.length
+    maxGuesses = mysteryWord.length*2;
 }
 
 // creates divs in mystery-word div filled with underscores for each letter and with a class = letter
