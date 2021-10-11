@@ -68,4 +68,3 @@ function buttonPress(button) {
 for (let button of buttons) {
     buttonPress(button);
 }
-
